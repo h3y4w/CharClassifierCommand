@@ -15,13 +15,13 @@ charc test [-h] -d pkl-filename  -i [IMAGES [IMAGES ...]]
 
 ####Args:
 - -d: Pickle filename
-- -i: name of images appended with ":{label}"
+- -i: name of image followed by label
 
 ####Examples: 
 ```
-charc test -d nn.pkl -i image_number_1.jpg:1 image_number4.jpg:4
+charc test -d nn.pkl -i image_number_1.jpg 1 image_number4.jpg 4
 
-charc test -d other_nn.pkl -i number_5_image.png:5
+charc test -d other_nn.pkl -i number_5_image.png 5
 
 ```
 ##Train
@@ -29,12 +29,13 @@ charc test -d other_nn.pkl -i number_5_image.png:5
 
 ####Command: 
 ```
-charc train [-h] -d training-data-filename [-i INODES] [-o ONODES] [-n HNODES] [-l L_RATE]
+charc train [-h] -d [training-data-filename[DATA ...] [-i INODES] [-o ONODES] [-n HNODES] [-l L_RATE]
              [-e EPOCH] [--out OUT]
 ```
 
 
 ####Args:
+- -d: CSV files
 - -i: Input Nodes
 - -o: Output Nodes
 - -n: Hidden Nodes
@@ -46,6 +47,6 @@ charc train [-h] -d training-data-filename [-i INODES] [-o ONODES] [-n HNODES] [
 ```
 charc test -d data.csv -e 3 -l .1 --out nn
 
-charc test -d data.csv -i 784 -n 200 -o 10 --out other_nn
+charc test -d data.csv data2.csv -i 784 -n 200 -o 10 --out other_nn
 
 ```
