@@ -1,0 +1,6 @@
+
+
+class InputNodesException(ValueError):
+    pass
+
+
