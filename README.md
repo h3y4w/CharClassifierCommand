@@ -5,34 +5,47 @@
 Currently Date has to be in a csv file and the total number of pixels have to be the same for training and testing images
 
 
+##Test
+###Usage: Loads pickle of previously trained neuron network to use with testing images
 
-Command:
+####Command:
 ```
 charc test [-h] -d pkl-filename  -i [IMAGES [IMAGES ...]]
 ```
-Usage: Loads pickle of previously trained neuron network to use with testing images
-Example: 
-```
-charc test -d nn.pkl -i image_number_1.jpg:1
-```
 
-Command: 
+####Args:
+- -d: Pickle filename
+- -i: name of images appended with ":{label}"
+
+####Examples: 
+```
+charc test -d nn.pkl -i image_number_1.jpg:1 image_number4.jpg:4
+
+charc test -d other_nn.pkl -i number_5_image.png:5
+
+```
+##Train
+###Usage: Trains and saves neuron network to pickle
+
+####Command: 
 ```
 charc train [-h] -d training-data-filename [-i INODES] [-o ONODES] [-n HNODES] [-l L_RATE]
              [-e EPOCH] [--out OUT]
 ```
 
-Usage: Trains and saves neuron network to pickle
 
-Args:
--i: Input Nodes
--o: Output Nodes
--n: Hidden Nodes
--l: Learning Rate
--e: epoch
--out: Output filename
+####Args:
+- -i: Input Nodes
+- -o: Output Nodes
+- -n: Hidden Nodes
+- -l: Learning Rate
+- -e: epoch
+- --out: Output filename
 
-Example: 
+####Examples: 
 ```
-charc test -d data.csv -e 3 -l .1 --out nn 
+charc test -d data.csv -e 3 -l .1 --out nn
+
+charc test -d data.csv -i 784 -n 200 -o 10 --out other_nn
+
 ```
